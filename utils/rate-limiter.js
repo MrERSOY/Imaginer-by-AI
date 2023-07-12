@@ -1,5 +1,6 @@
 import rateLimit from "express-rate-limit";
 import slowDown from "express-slow-down";
+import { NextResponse } from "next/server";
 
 const applyMiddleware = (middleware) => (request, response) =>
   new Promise((resolve, reject) => {
@@ -14,8 +15,8 @@ const getIP = (request) =>
   request.connection.remoteAddress;
 
 export const getRateLimitMiddlewares = () => {
-  const max = 3;
-  const windowMs = 12 * 60 * 60 * 1000;
+  const max = 999;
+  const windowMs = 1000;
   const keyGenerator = getIP;
 
   return [
@@ -30,7 +31,7 @@ async function applyRateLimit(request, response) {
   await Promise.all(
     middlewares
       .map(applyMiddleware)
-      .map((middleware) => middleware(request, response))
+      .map((middleware) => middleware(request, NextResponse))
   );
 }
 

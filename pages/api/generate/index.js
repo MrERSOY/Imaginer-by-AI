@@ -26,8 +26,9 @@ const getGeneration = async (url) => {
     },
   });
 
-  return result.json();
+  return result.json(); // Yanıtı JSON formatına dönüştürerek döndürün
 };
+
 
 async function handler(req, res) {
   const { prompt } = req.body;
@@ -39,16 +40,15 @@ async function handler(req, res) {
   let generatedImage;
 
   while (!generatedImage) {
-   // const result = await getGeneration(predictions.urls.get);
+    const result = await getGeneration(predictions.urls.get);
 
-   // if (result.status === "succeeded") {
-      //[generatedImage] = result.output;
-    //} //else 
-    //if (result.status === "failed") {
-      //break;
-    //} else {
-     // await new Promise((resolve) => setTimeout(resolve, 1000));
-   // }
+    if (result.status === "succeeded") {
+      [generatedImage] = result.output;
+    } else if (result.status === "failed") {
+      break;
+    } else {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    }
   }
 
   res
@@ -56,4 +56,4 @@ async function handler(req, res) {
     .json(generatedImage ? generatedImage : "Failed to generate the image");
 }
 
-export default handler;
+export  default handler;
