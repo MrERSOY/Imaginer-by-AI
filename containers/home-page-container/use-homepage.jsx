@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, createContext, useContext, useMemo } from "react";
 
 const HomepageContext = createContext();
@@ -65,7 +66,9 @@ export const HomepageContextProvider = ({ children }) => {
   );
 };
 
-export const useHomepage = () => {
+const useHomepage = () => {
   const context = useContext(HomepageContext);
   return context;
 };
+
+export { useHomepage };

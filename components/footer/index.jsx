@@ -7,10 +7,10 @@ import styles from "./styles.module.scss";
 function Footer() {
   return (
     <footer className={styles.footer}>
-      <Link href="https://github.com/mehmetpekcan" target="_blank">
+      <Link href="https://github.com/" target="_blank">
         <GithubIcon />
       </Link>
-      <Link href="https://twitter.com/_mehmetpekcan" target="_blank">
+      <Link href="https://twitter.com/" target="_blank">
         <TwitterIcon />
       </Link>
       <p>

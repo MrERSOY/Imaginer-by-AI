@@ -1,10 +1,10 @@
 import { HomePageContainer } from "@/containers/home-page-container";
-import { HomePageProvider } from "@/containers/home-page-container/use-homepage";
+import { HomepageContextProvider } from "@/containers/home-page-container/use-homepage";
 function HomePage() {
   return (
-    <HomePageProvider>
+    <HomepageContextProvider>
       <HomePageContainer />
-    </HomePageProvider>
+    </HomepageContextProvider>
   );
 }
 
