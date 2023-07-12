@@ -14,7 +14,8 @@ function Footer() {
         <TwitterIcon />
       </Link>
       <p>
-        Made by <b>Mehmet Pekcan</b>
+        This is the project I'm working on to find out. I didn't create it. Just
+        copy.
         <br />
         and, built with <b>Next.js</b>
       </p>
