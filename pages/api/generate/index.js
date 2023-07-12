@@ -1,5 +1,6 @@
+require('dotenv').config();
 const REPLICATE_MODEL_VERSION =
-  "f178fa7a1ae43a9a9af01b833b9d2ecf97b1bcb0acfd2dc5dd04895e042863f1";
+  "r8_7IjVP8KINst0rfhOpIab5oKUXX0pc2o3sznlL";
 
 const startGeneration = async (prompt) => {
   const response = await fetch(`${process.env.REPLICATE_API_URL}/predictions`, {
@@ -38,15 +39,16 @@ async function handler(req, res) {
   let generatedImage;
 
   while (!generatedImage) {
-    const result = await getGeneration(predictions.urls.get);
+   // const result = await getGeneration(predictions.urls.get);
 
-    if (result.status === "succeeded") {
-      [generatedImage] = result.output;
-    } else if (result.status === "failed") {
-      break;
-    } else {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-    }
+   // if (result.status === "succeeded") {
+      //[generatedImage] = result.output;
+    //} //else 
+    //if (result.status === "failed") {
+      //break;
+    //} else {
+     // await new Promise((resolve) => setTimeout(resolve, 1000));
+   // }
   }
 
   res
