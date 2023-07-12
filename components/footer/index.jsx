@@ -14,7 +14,7 @@ function Footer() {
         <TwitterIcon />
       </Link>
       <p>
-        This is the project I&apom working on to find out. I didn&apot create
+        This is the project I&apom; working on to find out. I didn&apom;t create
         it. Just copy.
         <br />
         and, built with <b>Next.js</b>
